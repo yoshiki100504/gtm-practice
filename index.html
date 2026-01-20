@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GTM練習サイト</title>
+</head>
+
+<body style="font-family: sans-serif; line-height: 1.6; padding: 24px;">
+  <h1>GTM練習サイト</h1>
+  <p>ここで「クリック」「スクロール」「dataLayer」を練習します。</p>
+
+  <button id="btn_signup" style="padding: 12px 16px; font-size: 16px;">
+    仮の「登録」ボタン
+  </button>
+
+  <div style="height: 1200px;"></div>
+
+  <script>
+    // ▼ クリックしたら dataLayer にイベントを積む（GTMが読む対象）
+    window.dataLayer = window.dataLayer || [];
+    document.getElementById("btn_signup").addEventListener("click", function () {
+      dataLayer.push({
+        event: "signup_mock",
+        button_id: "btn_signup"
+      });
+      alert("クリックイベント（signup_mock）をdataLayerに入れました！");
+    });
+  </script>
+</body>
+</html>
